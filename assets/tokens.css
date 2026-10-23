@@ -1,0 +1,119 @@
+/* Дизайн-токены центра здоровья. Подключать ПОСЛЕ coreui.min.css.
+   Источник правды по цветам и размерам: docs/ДИЗАЙН.md */
+
+:root, [data-coreui-theme=light] {
+  --hh-font: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --hh-bg: #EEEEF2;
+  --hh-card: #FFFFFF;
+  --hh-inset: #F7F7FA;
+  --hh-tag: #F2F2F5;
+  --hh-text: #151515;
+  --hh-muted: #8A8A93;
+  --hh-line: #F0F0F4;
+  --hh-accent: #A686E7;
+  --hh-accent-dark: #7A5BD6;
+  --hh-accent-soft: rgba(166,134,231,.14);
+  --hh-accent-band: rgba(166,134,231,.35);
+  --hh-black: #151515;
+  --hh-bad: #EA4646;        --hh-bad-bg: rgba(234,70,70,.12);
+  --hh-warn: #F2B441;       --hh-warn-bg: rgba(242,180,65,.18);  --hh-warn-text: #9A6A00;
+  --hh-ok: #2F9E5F;         --hh-ok-bg: rgba(47,158,95,.12);
+  --hh-low: #6A4BC4;        --hh-low-bg: rgba(166,134,231,.18);
+  --hh-radius: 24px;
+  --hh-radius-sm: 16px;
+  --hh-shadow: 0 2px 14px rgba(21,21,21,.04);
+  --hh-shadow-pill: 0 1px 4px rgba(21,21,21,.04);
+
+  /* переопределения CoreUI */
+  --cui-body-font-family: var(--hh-font);
+  --cui-body-bg: var(--hh-bg);
+  --cui-body-color: var(--hh-text);
+  --cui-secondary-color: var(--hh-muted);
+  --cui-border-color: var(--hh-line);
+  --cui-primary: var(--hh-accent);
+  --cui-primary-rgb: 166,134,231;
+  --cui-danger: var(--hh-bad);
+  --cui-warning: var(--hh-warn);
+  --cui-success: var(--hh-ok);
+  --cui-card-bg: var(--hh-card);
+  --cui-card-border-radius: var(--hh-radius);
+  --cui-card-border-width: 0;
+  --cui-card-box-shadow: var(--hh-shadow);
+  --cui-tertiary-bg: var(--hh-inset);
+  --cui-link-color: var(--hh-text);
+  --cui-link-hover-color: var(--hh-accent-dark);
+}
+
+[data-coreui-theme=dark] {
+  --hh-bg: #141418; --hh-card: #1E1E24; --hh-inset: #26262E; --hh-tag: #26262E;
+  --hh-text: #ECECF0; --hh-muted: #8A8A93; --hh-line: #2C2C35;
+  --hh-shadow: 0 2px 14px rgba(0,0,0,.25);
+  --hh-warn-text: #F2C46B; --hh-low: #B9A3F2;
+  --hh-warn-bg: rgba(242,180,65,.22); --hh-low-bg: rgba(166,134,231,.24); --hh-bad-bg: rgba(234,70,70,.2); --hh-ok-bg: rgba(47,158,95,.2);
+  --cui-body-bg: var(--hh-bg); --cui-body-color: var(--hh-text); --cui-card-bg: var(--hh-card);
+  --cui-border-color: var(--hh-line); --cui-tertiary-bg: var(--hh-inset);
+}
+
+body { font-family: var(--hh-font); font-feature-settings: "tnum" 1; background: var(--hh-bg); color: var(--hh-text); }
+
+/* навигация таблетками */
+.hh-nav { display: flex; align-items: center; gap: 8px; }
+.hh-pill { padding: 10px 18px; border-radius: 999px; background: var(--hh-card); color: var(--hh-text); font-size: 14px; box-shadow: var(--hh-shadow-pill); text-decoration: none; border: 0; cursor: pointer; }
+.hh-pill.active, .hh-pill:hover.active { background: var(--hh-black); color: #fff; }
+.hh-rail { display: flex; flex-direction: column; gap: 10px; }
+.hh-ico { width: 44px; height: 44px; border-radius: 50%; background: var(--hh-card); display: grid; place-items: center; box-shadow: var(--hh-shadow-pill); }
+.hh-ico svg { width: 18px; height: 18px; stroke: var(--hh-text); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.hh-ico.active { background: var(--hh-accent); } .hh-ico.active svg { stroke: #fff; }
+
+/* переключатель видов и фильтры */
+.hh-seg { display: inline-flex; gap: 4px; background: var(--hh-card); padding: 5px; border-radius: 999px; box-shadow: var(--hh-shadow-pill); }
+.hh-seg .hh-tab { padding: 9px 16px; border-radius: 999px; font-size: 13px; color: var(--hh-muted); border: 0; background: transparent; cursor: pointer; }
+.hh-seg .hh-tab.active { background: var(--hh-black); color: #fff; }
+.hh-filter { padding: 7px 14px; border-radius: 999px; font-size: 13px; background: var(--hh-tag); box-shadow: none; border: 0; cursor: pointer; color: var(--hh-text); }
+.hh-filter:hover { filter: brightness(.96); }
+[data-coreui-theme=dark] .hh-filter:hover { filter: brightness(1.15); }
+.hh-filter.active { background: var(--hh-accent); color: #fff; }
+
+/* карточки и текст */
+.hh-card { background: var(--hh-card); border-radius: var(--hh-radius); box-shadow: var(--hh-shadow); padding: 20px 22px; }
+.hh-inset { background: var(--hh-inset); border-radius: var(--hh-radius-sm); padding: 12px 14px; }
+.hh-h { font-size: 18px; font-weight: 600; margin: 0; }
+.hh-sub { font-size: 12px; color: var(--hh-muted); margin-top: 2px; }
+.hh-group { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--hh-muted); }
+.hh-muted { color: var(--hh-muted); }
+.hh-tag { display: inline-block; padding: 6px 12px; border-radius: 999px; background: var(--hh-tag); font-size: 13px; }
+.hh-tag b { font-weight: 600; } .hh-tag span { color: var(--hh-muted); }
+
+/* чипы статусов */
+.hh-chip { display: inline-block; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+.hh-chip.bad { background: var(--hh-bad-bg); color: var(--hh-bad); }
+.hh-chip.warn { background: var(--hh-warn-bg); color: var(--hh-warn-text); }
+.hh-chip.ok { background: var(--hh-ok-bg); color: var(--hh-ok); }
+.hh-chip.low { background: var(--hh-low-bg); color: var(--hh-low); }
+.hh-count { background: var(--hh-bad); color: #fff; font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 999px; }
+
+/* таблетка дня, подсказка, шкала */
+.hh-day { width: 56px; height: 56px; border-radius: 999px; background: var(--hh-tag); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 12px; color: var(--hh-muted); }
+.hh-day b { font-size: 15px; color: var(--hh-text); font-weight: 600; }
+.hh-day.active { background: var(--hh-black); color: #c9c9d1; } .hh-day.active b { color: #fff; }
+.hh-tip { background: var(--hh-black); color: #fff; border-radius: 10px; padding: 8px 12px; font-size: 12px; font-weight: 600; }
+.hh-bar { position: relative; height: 8px; border-radius: 4px; background: var(--hh-tag); width: 130px; }
+.hh-bar i { position: absolute; top: 0; bottom: 0; background: var(--hh-accent-band); border-radius: 4px; }
+.hh-bar b { position: absolute; top: -3px; width: 14px; height: 14px; border-radius: 50%; border: 2.5px solid var(--hh-card); box-sizing: border-box; transform: translateX(-50%); box-shadow: 0 1px 3px rgba(21,21,21,.2); }
+
+/* точки на теле */
+.hh-hot { position: absolute; width: 44px; height: 44px; border-radius: 50%; background: rgba(21,21,21,.78); display: grid; place-items: center; }
+.hh-hot svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.hh-call { position: absolute; background: rgba(255,255,255,.9); backdrop-filter: blur(10px); border-radius: 14px; padding: 8px 12px; box-shadow: 0 4px 18px rgba(21,21,21,.08); min-width: 128px; }
+.hh-call .n { font-size: 11px; color: var(--hh-muted); white-space: nowrap; }
+.hh-call .v { font-size: 19px; font-weight: 600; line-height: 1.1; } .hh-call .v small { font-size: 12px; font-weight: 400; color: var(--hh-muted); margin-left: 4px; }
+.hh-call .up { color: var(--hh-bad); font-size: 11px; font-weight: 600; } .hh-call .okk { color: var(--hh-ok); font-size: 11px; font-weight: 600; }
+[data-coreui-theme=dark] .hh-call { background: rgba(30,30,36,.9); }
+
+/* таблицы */
+.hh-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.hh-table th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--hh-muted); font-weight: 600; padding: 8px 10px; }
+.hh-table td { padding: 10px; border-top: 1px solid var(--hh-line); vertical-align: middle; }
+.hh-table .num { text-align: right; }
+
+@media print { .hh-nav, .hh-rail, .hh-seg, .hh-filter { display: none !important; } body { background: #fff; } .hh-card { box-shadow: none; break-inside: avoid; } }
